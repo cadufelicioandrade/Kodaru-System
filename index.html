@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kodaru System — Engenharia de software e apps que resolvem problemas reais</title>
+<meta name="description" content="Kodaru System é um estúdio independente de engenharia de software e desenvolvimento de apps. Criamos produtos como WaterPulse e LevivaFast com arquitetura sólida e design cuidadoso.">
+<meta property="og:title" content="Kodaru System">
+<meta property="og:description" content="Estúdio de engenharia de software e apps. WaterPulse, LevivaFast e uma esteira de produtos em construção.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kodaru System">
+<meta property="og:url" content="https://kodarusystem.com">
+<meta name="author" content="Carlos Eduardo Felicio de Andrade">
+<meta name="keywords" content="Kodaru System, Carlos Eduardo Felicio de Andrade, engenharia de software, desenvolvimento de apps, WaterPulse, LevivaFast, arquitetura de software, estúdio de software, apps Android, Flutter, .NET">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kodaru System">
+<meta name="twitter:description" content="Estúdio independente de engenharia de software e apps. Fundado por Carlos Eduardo Felicio de Andrade.">
+<link rel="canonical" href="https://kodarusystem.com">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kodaru System",
+  "url": "https://kodarusystem.com",
+  "description": "Estúdio independente de engenharia de software e desenvolvimento de aplicativos.",
+  "founder": {
+    "@type": "Person",
+    "name": "Carlos Eduardo Felicio de Andrade",
+    "jobTitle": "Fundador e Engenheiro de Software",
+    "knowsAbout": ["Arquitetura de Software", "Desenvolvimento de Aplicativos", ".NET", "Flutter", "Kotlin", "Microsserviços"]
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "MobileApplication", "name": "WaterPulse", "applicationCategory": "HealthApplication", "operatingSystem": "Android" }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "MobileApplication", "name": "LevivaFast", "applicationCategory": "HealthApplication" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E1B3A;
+  --navy-deep:#091228;
+  --navy-panel:#13224a;
+  --mint:#4ECDC4;
+  --mint-dim:#3aa89f;
+  --ink:#eaf0f7;
+  --ink-soft:#9db0cc;
+  --ink-faint:#5f7191;
+  --line:rgba(78,205,196,.14);
+  --line-soft:rgba(157,176,204,.12);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(900px 500px at 78% -5%,rgba(78,205,196,.10),transparent 60%),
+    radial-gradient(700px 600px at 8% 12%,rgba(30,55,120,.35),transparent 55%);
+}
+.wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+.mono{font-family:var(--mono);font-weight:400}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--mint);display:inline-flex;align-items:center;gap:12px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--mint);opacity:.6}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 28px;transition:.4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(9,18,40,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);padding:12px 28px;
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:19px;letter-spacing:-.01em}
+.brand-mark{width:30px;height:30px;position:relative;flex:none}
+.brand-mark svg{width:100%;height:100%}
+.brand span{color:var(--mint)}
+.nav-links{display:flex;gap:34px;align-items:center;font-size:14.5px;font-weight:400;color:var(--ink-soft)}
+.nav-links a{transition:.25s;position:relative}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;
+  border:1px solid var(--line);color:var(--mint);padding:9px 16px;border-radius:2px;transition:.25s;
+}
+.nav-cta:hover{background:var(--mint);color:var(--navy-deep);border-color:var(--mint)}
+.nav-toggle{display:none;background:none;border:none;color:var(--ink);cursor:pointer}
+.lang-switch{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;background:none;border:1px solid var(--line-soft);border-radius:2px;padding:8px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.25s}
+.lang-switch:hover{border-color:var(--mint)}
+.lang-opt{color:var(--ink-faint);transition:.25s}
+.lang-opt.active{color:var(--mint)}
+.lang-sep{color:var(--ink-faint);opacity:.5}
+.lang-switch-mobile{display:none}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px 0 60px;position:relative}
+.hero h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(42px,7.4vw,88px);line-height:1.02;letter-spacing:-.015em;
+  margin:26px 0 0;max-width:14ch;
+}
+.hero h1 em{font-style:italic;color:var(--mint)}
+.hero-sub{
+  margin-top:28px;max-width:52ch;font-size:clamp(16px,2vw,19px);
+  color:var(--ink-soft);font-weight:300;
+}
+.hero-actions{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  font-family:var(--mono);font-size:13.5px;letter-spacing:.04em;
+  padding:15px 26px;border-radius:2px;transition:.3s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+}
+.btn-primary{background:var(--mint);color:var(--navy-deep);font-weight:600;border:1px solid var(--mint)}
+.btn-primary:hover{background:transparent;color:var(--mint);box-shadow:0 0 0 1px var(--mint)}
+.btn-ghost{border:1px solid var(--line-soft);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--mint);color:var(--mint)}
+.btn .arrow{transition:transform .3s}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* ---------- pipeline signature ---------- */
+.pipeline{margin-top:78px;position:relative}
+.pipeline-label{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px}
+.rail{position:relative;height:2px;background:var(--line-soft);border-radius:2px}
+.rail-fill{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--mint-dim),var(--mint));border-radius:2px;box-shadow:0 0 14px rgba(78,205,196,.5)}
+.rail-pulse{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--mint);transform:translate(-50%,-50%);box-shadow:0 0 0 0 rgba(78,205,196,.5);opacity:0}
+.stages{display:flex;justify-content:space-between;margin-top:28px;gap:12px}
+.stage{flex:1;position:relative}
+.stage .node{
+  position:absolute;top:-35px;left:0;width:12px;height:12px;border-radius:50%;
+  background:var(--navy);border:2px solid var(--ink-faint);transition:.4s;
+}
+.stage.on .node{border-color:var(--mint);background:var(--mint);box-shadow:0 0 16px rgba(78,205,196,.7)}
+.stage .idx{font-family:var(--mono);font-size:11px;color:var(--mint);letter-spacing:.1em}
+.stage h4{font-size:15px;font-weight:600;margin:6px 0 4px}
+.stage p{font-size:13px;color:var(--ink-faint);line-height:1.45}
+
+/* ---------- section shell ---------- */
+section{padding:110px 0;position:relative}
+.sec-head{max-width:60ch}
+.sec-head h2{
+  font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.6vw,50px);
+  line-height:1.08;letter-spacing:-.01em;margin:20px 0 0;
+}
+.sec-head p{margin-top:20px;color:var(--ink-soft);font-size:17px;max-width:56ch}
+.reveal{opacity:0;transform:translateY(26px);transition:.9s cubic-bezier(.16,.8,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- culture / values ---------- */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:64px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden}
+.value{background:var(--navy);padding:38px 32px;transition:.4s}
+.value:hover{background:var(--navy-panel)}
+.value .vn{font-family:var(--mono);font-size:12px;color:var(--mint);letter-spacing:.1em}
+.value h3{font-family:var(--serif);font-weight:400;font-size:24px;margin:16px 0 12px;letter-spacing:-.01em}
+.value p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+
+/* ---------- mission band ---------- */
+.mission{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--navy-deep)}
+.mission .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:center}
+.mission-quote{font-family:var(--serif);font-size:clamp(26px,3.4vw,38px);line-height:1.25;letter-spacing:-.01em}
+.mission-quote em{color:var(--mint);font-style:italic}
+.mission-side p{color:var(--ink-soft);font-size:16px;margin-bottom:18px}
+.mission-side p:last-child{margin-bottom:0}
+.founder{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:26px;border-top:1px solid var(--line-soft)}
+.founder-mark{width:46px;height:46px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;color:var(--navy-deep);background:linear-gradient(145deg,var(--mint),#7fe0d8);box-shadow:0 6px 18px rgba(78,205,196,.25)}
+.founder-info{display:flex;flex-direction:column;gap:2px}
+.founder-name{font-weight:600;font-size:15.5px;letter-spacing:-.01em}
+.founder-role{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
+.mission-tag{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+
+/* ---------- products ---------- */
+.products{display:flex;flex-direction:column;gap:26px;margin-top:64px}
+.product{
+  display:grid;grid-template-columns:auto 1fr auto;gap:38px;align-items:center;
+  border:1px solid var(--line-soft);border-radius:6px;padding:38px 40px;
+  background:linear-gradient(180deg,rgba(255,255,255,.015),transparent);
+  transition:.45s;position:relative;overflow:hidden;
+}
+.product::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent,var(--mint));opacity:.7;transition:.4s}
+.product:hover{border-color:var(--line);transform:translateY(-3px)}
+.product:hover::after{width:5px;opacity:1}
+.p-icon{width:76px;height:76px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.p-icon svg{width:40px;height:40px}
+.p-meta{min-width:0}
+.p-status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+.p-status .dot{width:7px;height:7px;border-radius:50%;background:var(--accent,var(--mint));box-shadow:0 0 8px var(--accent,var(--mint))}
+.p-meta h3{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:14px}
+.p-meta .pkg{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+.p-meta p{margin-top:12px;color:var(--ink-soft);font-size:15px;max-width:48ch}
+.p-tags{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--line-soft);border-radius:2px;padding:4px 9px}
+.p-cta{font-family:var(--mono);font-size:13px;color:var(--mint);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:.3s}
+.p-cta:hover{gap:12px}
+
+/* upcoming */
+.upcoming{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.up{border:1px dashed var(--line-soft);border-radius:5px;padding:18px 18px;transition:.35s}
+.up:hover{border-color:var(--line);background:rgba(78,205,196,.03)}
+.up .un{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em}
+.up h5{font-size:16px;font-weight:600;margin:8px 0 4px}
+.up p{font-size:12.5px;color:var(--ink-faint)}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;margin-top:8px}
+.stat{background:var(--navy);padding:34px 26px;text-align:left}
+.stat .num{font-family:var(--serif);font-size:44px;color:var(--mint);line-height:1}
+.stat .lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:12px}
+
+/* ---------- cta ---------- */
+.final{text-align:center;padding:130px 0}
+.final h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5vw,58px);letter-spacing:-.015em;line-height:1.05;max-width:16ch;margin:0 auto}
+.final p{margin:24px auto 0;color:var(--ink-soft);max-width:46ch;font-size:17px}
+.final .hero-actions{justify-content:center}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line-soft);padding:56px 0 40px}
+footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.foot-brand{max-width:34ch}
+.foot-brand p{color:var(--ink-faint);font-size:14px;margin-top:16px}
+.foot-cols{display:flex;gap:64px}
+.foot-col h6{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px}
+.foot-col a{display:block;color:var(--ink-soft);font-size:14px;margin-bottom:10px;transition:.25s}
+.foot-col a:hover{color:var(--mint)}
+.foot-base{margin-top:48px;padding-top:24px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+
+/* ---------- responsive ---------- */
+@media(max-width:860px){
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .lang-switch-mobile{display:inline-flex;margin-left:auto;margin-right:14px;padding:6px 10px;font-size:11.5px}
+  .stages{display:grid;grid-template-columns:1fr 1fr;gap:28px 16px}
+  .values{grid-template-columns:1fr}
+  .mission .wrap{grid-template-columns:1fr;gap:34px}
+  .product{grid-template-columns:auto 1fr;gap:24px}
+  .p-cta{grid-column:1/-1;justify-content:flex-start}
+  .upcoming{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .foot-cols{gap:40px}
+}
+@media(max-width:520px){
+  .wrap{padding:0 20px}
+  .p-icon{width:60px;height:60px}
+  .stages{grid-template-columns:1fr}
+  .upcoming{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .product{grid-template-columns:1fr}
+  .p-icon{width:64px;height:64px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="brand" href="#top">
+    <span class="brand-mark">
+      <svg viewBox="0 0 32 32" fill="none">
+        <rect x="1" y="1" width="30" height="30" rx="7" stroke="#4ECDC4" stroke-width="1.5"/>
+        <path d="M11 9v14M11 16l8-7M11 16l8 7" stroke="#4ECDC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    Kodaru <span>System</span>
+  </a>
+  <div class="nav-links">
+    <a href="#esteira" data-i18n="nav.esteira">Esteira</a>
+    <a href="#cultura" data-i18n="nav.cultura">Cultura</a>
+    <a href="#missao" data-i18n="nav.missao">Missão</a>
+    <a href="#produtos" data-i18n="nav.produtos">Produtos</a>
+    <a href="#contato" class="nav-cta" data-i18n="nav.cta">Fale com a gente</a>
+    <button class="lang-switch" aria-label="Switch language">
+      <span class="lang-opt active" data-lang="pt">PT</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="en">EN</span>
+    </button>
+  </div>
+  <button class="lang-switch lang-switch-mobile" aria-label="Switch language">
+    <span class="lang-opt active" data-lang="pt">PT</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="en">EN</span>
+  </button>
+  <button class="nav-toggle" aria-label="menu" onclick="document.querySelector('.nav-links').style.display='flex';document.querySelector('.nav-links').style.position='absolute';document.querySelector('.nav-links').style.top='60px';document.querySelector('.nav-links').style.right='20px';document.querySelector('.nav-links').style.flexDirection='column';document.querySelector('.nav-links').style.background='var(--navy-deep)';document.querySelector('.nav-links').style.padding='20px';document.querySelector('.nav-links').style.borderRadius='6px';document.querySelector('.nav-links').style.border='1px solid var(--line)';">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+
+<a id="top"></a>
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="hero.eyebrow">Estúdio independente de software</span>
+    <h1 data-i18n="hero.h1">Da ideia à loja, um <em>pipeline</em> só. Software com fundação, produtos com propósito.</h1>
+    <p class="hero-sub" data-i18n="hero.sub">A Kodaru System é um estúdio de engenharia que desenha, constrói e opera aplicativos de ponta a ponta. Arquitetura séria por baixo, experiências leves por cima — a mesma esteira que entrega microsserviços em produção move nossos apps até a mão do usuário.</p>
+    <div class="hero-actions">
+      <a href="#produtos" class="btn btn-primary" data-i18n="hero.cta1">Ver os produtos <span class="arrow">→</span></a>
+      <a href="#esteira" class="btn btn-ghost" data-i18n="hero.cta2">Como construímos</a>
+    </div>
+
+    <div class="pipeline" id="esteira">
+      <div class="pipeline-label" data-i18n="pipe.label">A esteira de desenvolvimento</div>
+      <div class="rail">
+        <div class="rail-fill" id="railFill"></div>
+        <div class="rail-pulse" id="railPulse"></div>
+      </div>
+      <div class="stages" id="stages">
+        <div class="stage"><span class="node"></span><span class="idx">01</span><h4 data-i18n="stage1.h">Descoberta</h4><p data-i18n="stage1.p">Um problema real, um usuário real. Escopo enxuto, hipótese clara.</p></div>
+        <div class="stage"><span class="node"></span><span class="idx">02</span><h4 data-i18n="stage2.h">Arquitetura</h4><p data-i18n="stage2.p">Camadas limpas, dados que não se perdem, decisões que envelhecem bem.</p></div>
+        <div class="stage"><span class="node"></span><span class="idx">03</span><h4 data-i18n="stage3.h">Build</h4><p data-i18n="stage3.p">Kotlin, Flutter e .NET. Código onde debug e release se comportam igual.</p></div>
+        <div class="stage"><span class="node"></span><span class="idx">04</span><h4 data-i18n="stage4.h">Lançamento</h4><p data-i18n="stage4.p">Testes fechados, compliance, monetização — pronto para a Play Store.</p></div>
+        <div class="stage"><span class="node"></span><span class="idx">05</span><h4 data-i18n="stage5.h">Operação</h4><p data-i18n="stage5.p">Métricas, correções e iteração. O produto vive depois do deploy.</p></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CULTURA -->
+<section id="cultura">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="cult.eyebrow">Cultura</span>
+      <h2 data-i18n="cult.h2">Poucas pessoas, decisões inteiras.</h2>
+      <p data-i18n="cult.p">A Kodaru nasceu da convicção de que dá para construir software de qualidade de fabricante grande com a agilidade de quem responde a si mesmo. Sem comitê, sem dívida técnica escondida debaixo do tapete — só engenharia honesta e produtos que a gente mesmo usaria.</p>
+    </div>
+    <div class="values">
+      <div class="value reveal">
+        <span class="vn">/ 01</span>
+        <h3 data-i18n="val1.h">Fundação antes de fachada</h3>
+        <p data-i18n="val1.p">A tela bonita só sobrevive se a base aguenta. Modelagem de dados, tratamento de estado e persistência vêm primeiro — o resto é consequência.</p>
+      </div>
+      <div class="value reveal">
+        <span class="vn">/ 02</span>
+        <h3 data-i18n="val2.h">Um problema por vez</h3>
+        <p data-i18n="val2.p">Cada app resolve uma dor específica e resolve bem. Foco é o recurso mais caro de um estúdio pequeno, e a gente o gasta com disciplina.</p>
+      </div>
+      <div class="value reveal">
+        <span class="vn">/ 03</span>
+        <h3 data-i18n="val3.h">Reaproveitar, não repetir</h3>
+        <p data-i18n="val3.p">Um template, uma infraestrutura, uma assinatura que vale para toda a família de produtos. Cada app novo começa do ombro do anterior.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSAO -->
+<section class="mission" id="missao">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="mission-tag" data-i18n="miss.tag">Missão</div>
+      <blockquote class="mission-quote" data-i18n="miss.quote">Transformar hábitos difíceis em interações <em>leves</em> — e engenharia sólida em independência.</blockquote>
+    </div>
+    <div class="mission-side reveal">
+      <p data-i18n="miss.p1">Nossos produtos existem para tornar mais fácil aquilo que as pessoas já querem fazer: beber mais água, cuidar da alimentação, respirar melhor. A tecnologia deve sumir; o hábito deve ficar.</p>
+      <p data-i18n="miss.p2">Por trás disso, a Kodaru System constrói uma esteira de receita recorrente e conhecimento acumulado — o caminho de um desenvolvedor independente rumo à consultoria de arquitetura de alto nível, sustentada por produtos que andam sozinhos.</p>
+      <div class="founder">
+        <div class="founder-mark">CE</div>
+        <div class="founder-info">
+          <span class="founder-name">Carlos Eduardo Felicio de Andrade</span>
+          <span class="founder-role" data-i18n="founder.role">Fundador · Engenheiro de software</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="prod.eyebrow">Produtos</span>
+      <h2 data-i18n="prod.h2">A família Pulse.</h2>
+      <p data-i18n="prod.p">Aplicativos de bem-estar com uma identidade em comum: minimalismo funcional, monetização justa e a mesma base técnica por baixo. Compra única, sem assinaturas agressivas.</p>
+    </div>
+
+    <div class="products">
+      <!-- WaterPulse -->
+      <article class="product reveal" style="--accent:#4ECDC4">
+        <div class="p-icon" style="background:linear-gradient(145deg,#1a3a6e,#4ECDC4)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" fill="#fff" fill-opacity=".92"/><path d="M9 14a3 3 0 0 0 3 3" stroke="#1a3a6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="p-meta">
+          <span class="p-status"><span class="dot"></span data-i18n="wp.status">Ao vivo · Google Play</span>
+          <h3>WaterPulse <span class="pkg">com.app.beberagua</span></h3>
+          <p data-i18n="wp.p">Rastreador de hidratação que transforma a meta diária de água em um gesto de um toque. Lembretes inteligentes, histórico confiável e sincronização — sem fricção, sem perder um dado.</p>
+          <div class="p-tags"><span class="tag">Kotlin / Android</span><span class="tag">Firebase Auth</span><span class="tag">RevenueCat</span><span class="tag" data-i18n="wp.tag4">Premium vitalício</span></div>
+        </div>
+        <a class="p-cta" href="#contato" data-i18n="wp.cta">Ver na loja →</a>
+      </article>
+
+      <!-- LevivaFast -->
+      <article class="product reveal" style="--accent:#F0703A">
+        <div class="p-icon" style="background:linear-gradient(145deg,#7a2e12,#F0703A)">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#fff" stroke-width="1.7" stroke-opacity=".95"/><path d="M12 7.5V12l3 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3.2v1.6M20.8 12h-1.6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </div>
+        <div class="p-meta">
+          <span class="p-status"><span class="dot"></span data-i18n="lf.status">Em desenvolvimento</span>
+          <h3>LevivaFast <span class="pkg" data-i18n="lf.pkg">jejum intermitente</span></h3>
+          <p data-i18n="lf.p">Companheiro de jejum intermitente com uma linha do tempo horizontal que mostra sua janela de um relance. Identidade Ember, foco no ritmo do dia — acompanhar o jejum vira algo natural, quase silencioso.</p>
+          <div class="p-tags"><span class="tag">Flutter</span><span class="tag" data-i18n="lf.tag2">Timeline horizontal</span><span class="tag" data-i18n="lf.tag3">Paleta Ember</span><span class="tag" data-i18n="lf.tag4">Multiplataforma</span></div>
+        </div>
+        <a class="p-cta" href="#contato" data-i18n="lf.cta">Entrar na lista →</a>
+      </article>
+    </div>
+
+    <!-- Roadmap -->
+    <div style="margin-top:56px" class="reveal">
+      <div class="pipeline-label" style="margin-bottom:20px" data-i18n="road.label">Próximos na esteira</div>
+      <div class="upcoming">
+        <div class="up"><span class="un">Pulse ·</span><h5>BreathPulse</h5><p data-i18n="bp.p">Respiração guiada e foco.</p></div>
+        <div class="up"><span class="un">Pulse ·</span><h5>MoodPulse</h5><p data-i18n="mp.p">Registro de humor diário.</p></div>
+        <div class="up"><span class="un">Pulse ·</span><h5>CalmPulse</h5><p data-i18n="cp.p">Sono e relaxamento.</p></div>
+        <div class="up"><span class="un">Pulse ·</span><h5>MedPulse</h5><p data-i18n="mdp.p">Lembrete de medicação.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><div class="num" data-count="2">2</div><div class="lbl" data-i18n="st1">Apps na família Pulse</div></div>
+      <div class="stat"><div class="num" data-count="6">6</div><div class="lbl" data-i18n="st2">Produtos no roadmap</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl" data-i18n="st3">Stacks · .NET · Kotlin · Flutter</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl" data-i18n="st4">Compra, todos os apps</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="contato">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center" data-i18n="fin.eyebrow">Vamos conversar</span>
+    <h2 data-i18n="fin.h2">Um problema real merece software de verdade.</h2>
+    <p data-i18n="fin.p">Consultoria de arquitetura, desenvolvimento de apps ou uma parceria de produto — a esteira da Kodaru está aberta.</p>
+    <div class="hero-actions">
+      <a href="mailto:contato@kodarusystem.com" class="btn btn-primary">contato@kodarusystem.com <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">
+      <a class="brand" href="#top">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="7" stroke="#4ECDC4" stroke-width="1.5"/><path d="M11 9v14M11 16l8-7M11 16l8 7" stroke="#4ECDC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Kodaru <span>System</span>
+      </a>
+      <p data-i18n="foot.brand">Estúdio independente de engenharia de software e desenvolvimento de aplicativos. Fundação sólida, produtos com propósito.</p>
+    </div>
+    <div class="foot-cols">
+      <div class="foot-col">
+        <h6 data-i18n="foot.c1">Produtos</h6>
+        <a href="#produtos">WaterPulse</a>
+        <a href="#produtos">LevivaFast</a>
+        <a href="#produtos" data-i18n="foot.road">Roadmap Pulse</a>
+      </div>
+      <div class="foot-col">
+        <h6 data-i18n="foot.c2">Estúdio</h6>
+        <a href="#cultura" data-i18n="foot.cult">Cultura</a>
+        <a href="#missao" data-i18n="foot.miss">Missão</a>
+        <a href="#esteira" data-i18n="foot.est">Esteira</a>
+      </div>
+      <div class="foot-col">
+        <h6 data-i18n="foot.c3">Contato</h6>
+        <a href="mailto:contato@kodarusystem.com" data-i18n="foot.email">E-mail</a>
+        <a href="#contato" data-i18n="foot.cons">Consultoria</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="foot-base">
+      <span>© 2026 Kodaru System · kodarusystem.com</span>
+      <span class="mono">Built on the pipeline.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// nav scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+
+// reveal on scroll
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// pipeline animation
+const fill=document.getElementById('railFill'),pulse=document.getElementById('railPulse'),stages=[...document.querySelectorAll('#stages .stage')];
+let started=false;
+const pipeIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting&&!started){started=true;runPipe();pipeIO.disconnect()}}),{threshold:.4});
+pipeIO.observe(document.getElementById('esteira'));
+function runPipe(){
+  const dur=2600;let t0=null;
+  pulse.style.opacity='1';
+  function step(ts){
+    if(!t0)t0=ts;const p=Math.min((ts-t0)/dur,1);
+    const eased=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+    fill.style.width=(eased*100)+'%';
+    pulse.style.left=(eased*100)+'%';
+    stages.forEach((s,i)=>{if(eased>=i/(stages.length-1)-0.02)s.classList.add('on')});
+    if(p<1)requestAnimationFrame(step);
+    else{pulse.style.transition='opacity .6s';pulse.style.opacity='0';loopPulse()}
+  }
+  requestAnimationFrame(step);
+}
+function loopPulse(){
+  setInterval(()=>{
+    pulse.style.transition='none';pulse.style.opacity='.9';pulse.style.left='0%';
+    let t0=null;
+    function s(ts){if(!t0)t0=ts;const p=Math.min((ts-t0)/2200,1);const e=p*p*(3-2*p);pulse.style.left=(e*100)+'%';pulse.style.opacity=(1-p*.8);if(p<1)requestAnimationFrame(s)}
+    requestAnimationFrame(s);
+  },3600);
+}
+
+// count up stats
+const cIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){const el=e.target,end=+el.dataset.count;let n=0;const t=setInterval(()=>{n++;el.textContent=n;if(n>=end)clearInterval(t)},160);cIO.unobserve(el)}}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cIO.observe(el));
+
+// ---------- i18n ----------
+(function(){
+  const EN = {
+    "nav.cta": "Talk to us",
+    "nav.esteira": "Pipeline",
+    "nav.cultura": "Culture",
+    "nav.missao": "Mission",
+    "nav.produtos": "Products",
+    "hero.eyebrow": "Independent software studio",
+    "hero.h1": "From idea to store, one <em>pipeline</em>. Software with a foundation, products with a purpose.",
+    "hero.sub": "Kodaru System is an engineering studio that designs, builds and operates apps end to end. Serious architecture underneath, light experiences on top — the same pipeline that ships production microservices carries our apps into the user's hand.",
+    "hero.cta1": "See the products <span class=\"arrow\">→</span>",
+    "hero.cta2": "How we build",
+    "pipe.label": "The development pipeline",
+    "stage1.h": "Discovery",
+    "stage1.p": "A real problem, a real user. Lean scope, clear hypothesis.",
+    "stage2.h": "Architecture",
+    "stage2.p": "Clean layers, data that isn't lost, decisions that age well.",
+    "stage3.h": "Build",
+    "stage3.p": "Kotlin, Flutter and .NET. Code where debug and release behave the same.",
+    "stage4.h": "Launch",
+    "stage4.p": "Closed testing, compliance, monetization — ready for the Play Store.",
+    "stage5.h": "Operation",
+    "stage5.p": "Metrics, fixes and iteration. The product lives on after deploy.",
+    "cult.eyebrow": "Culture",
+    "cult.h2": "Few people, whole decisions.",
+    "cult.p": "Kodaru was born from the conviction that you can build big-vendor-quality software with the agility of answering only to yourself. No committee, no technical debt swept under the rug — just honest engineering and products we'd use ourselves.",
+    "val1.h": "Foundation before façade",
+    "val1.p": "A pretty screen only survives if the base holds. Data modeling, state handling and persistence come first — the rest follows.",
+    "val2.h": "One problem at a time",
+    "val2.p": "Each app solves one specific pain, and solves it well. Focus is the most expensive resource of a small studio, and we spend it with discipline.",
+    "val3.h": "Reuse, don't repeat",
+    "val3.p": "One template, one infrastructure, one subscription spanning the whole product family. Each new app starts on the shoulders of the last.",
+    "miss.tag": "Mission",
+    "miss.quote": "Turning hard habits into <em>light</em> interactions — and solid engineering into independence.",
+    "miss.p1": "Our products exist to make easier what people already want to do: drink more water, eat better, breathe easier. The technology should disappear; the habit should stay.",
+    "miss.p2": "Behind it, Kodaru System builds a pipeline of recurring revenue and accumulated knowledge — an independent developer's path toward high-end architecture consulting, sustained by products that run on their own.",
+    "founder.role": "Founder · Software engineer",
+    "prod.eyebrow": "Products",
+    "prod.h2": "The Pulse family.",
+    "prod.p": "Wellbeing apps with a shared identity: functional minimalism, fair monetization and the same technical base underneath. One-time purchase, no aggressive subscriptions.",
+    "wp.status": "Live · Google Play",
+    "wp.p": "A hydration tracker that turns the daily water goal into a one-tap gesture. Smart reminders, reliable history and sync — no friction, no lost data.",
+    "wp.tag4": "Lifetime premium",
+    "wp.cta": "View in store →",
+    "lf.status": "In development",
+    "lf.pkg": "intermittent fasting",
+    "lf.p": "An intermittent-fasting companion with a horizontal timeline that shows your window at a glance. Ember identity, focused on the day's rhythm — tracking your fast becomes natural, almost silent.",
+    "lf.tag2": "Horizontal timeline",
+    "lf.tag3": "Ember palette",
+    "lf.tag4": "Cross-platform",
+    "lf.cta": "Join the waitlist →",
+    "road.label": "Next in the pipeline",
+    "bp.p": "Guided breathing and focus.",
+    "mp.p": "Daily mood logging.",
+    "cp.p": "Sleep and relaxation.",
+    "mdp.p": "Medication reminders.",
+    "st1": "Apps in the Pulse family",
+    "st2": "Products on the roadmap",
+    "st3": "Stacks · .NET · Kotlin · Flutter",
+    "st4": "One purchase, every app",
+    "fin.eyebrow": "Let's talk",
+    "fin.h2": "A real problem deserves real software.",
+    "fin.p": "Architecture consulting, app development or a product partnership — Kodaru's pipeline is open.",
+    "foot.brand": "Independent studio for software engineering and app development. Solid foundation, products with a purpose.",
+    "foot.c1": "Products",
+    "foot.road": "Pulse roadmap",
+    "foot.c2": "Studio",
+    "foot.cult": "Culture",
+    "foot.miss": "Mission",
+    "foot.est": "Pipeline",
+    "foot.c3": "Contact",
+    "foot.email": "Email",
+    "foot.cons": "Consulting"
+  };
+  const PT = {};
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ PT[el.dataset.i18n]=el.innerHTML; });
+  const metaEN = {
+    title:"Kodaru System — Software engineering and apps that solve real problems",
+    desc:"Kodaru System is an independent software engineering and app development studio. We build products like WaterPulse and LevivaFast with solid architecture and careful design."
+  };
+  const metaPT = { title:document.title, desc:(document.querySelector('meta[name=description]')||{}).content };
+  let lang='pt';
+  function apply(l){
+    lang=l;
+    const src = l==='en'?EN:PT;
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const v=src[el.dataset.i18n]; if(v!==undefined) el.innerHTML=v;
+    });
+    document.documentElement.lang = l==='en'?'en':'pt-BR';
+    document.title = l==='en'?metaEN.title:metaPT.title;
+    const md=document.querySelector('meta[name=description]'); if(md) md.content = l==='en'?metaEN.desc:metaPT.desc;
+    document.querySelectorAll('.lang-switch').forEach(sw=>{
+      sw.querySelectorAll('.lang-opt').forEach(o=>o.classList.toggle('active', o.dataset.lang===l));
+    });
+    try{ localStorage.setItem('kodaru_lang', l); }catch(e){}
+  }
+  function toggle(){ apply(lang==='pt'?'en':'pt'); }
+  document.querySelectorAll('.lang-switch').forEach(sw=> sw.addEventListener('click', toggle));
+  let saved='pt'; try{ saved=localStorage.getItem('kodaru_lang')||'pt'; }catch(e){}
+  if(saved==='en') apply('en');
+})();
+
+</script>
+</body>
+</html>
