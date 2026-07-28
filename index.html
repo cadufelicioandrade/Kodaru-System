@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kodaru System — Engenharia de software e apps que resolvem problemas reais</title>
-<meta name="description" content="Kodaru System é um estúdio independente de engenharia de software e desenvolvimento de apps. Criamos produtos como WaterPulse e LevivaFast com arquitetura sólida e design cuidadoso.">
+<meta name="description" content="Kodaru System é um estúdio independente de engenharia de software e desenvolvimento de apps. Criamos produtos como DropPulse, LevivaFast, CyclePulse e FinancePulse com arquitetura sólida e design cuidadoso.">
 <meta property="og:title" content="Kodaru System">
-<meta property="og:description" content="Estúdio de engenharia de software e apps. WaterPulse, LevivaFast e uma esteira de produtos em construção.">
+<meta property="og:description" content="Estúdio de engenharia de software e apps. DropPulse, LevivaFast, CyclePulse e FinancePulse — a família Pulse.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kodaru System">
 <meta property="og:url" content="https://kodarusystem.com">
 <meta name="author" content="Carlos Eduardo Felicio de Andrade">
-<meta name="keywords" content="Kodaru System, Carlos Eduardo Felicio de Andrade, engenharia de software, desenvolvimento de apps, WaterPulse, LevivaFast, arquitetura de software, estúdio de software, apps Android, Flutter, .NET">
+<meta name="keywords" content="Kodaru System, Carlos Eduardo Felicio de Andrade, engenharia de software, desenvolvimento de apps, DropPulse, LevivaFast, CyclePulse, FinancePulse, arquitetura de software, estúdio de software, apps Android, iOS, Flutter, .NET">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kodaru System">
 <meta name="twitter:description" content="Estúdio independente de engenharia de software e apps. Fundado por Carlos Eduardo Felicio de Andrade.">
@@ -32,11 +32,19 @@
   "makesOffer": [
     {
       "@type": "Offer",
-      "itemOffered": { "@type": "MobileApplication", "name": "WaterPulse", "applicationCategory": "HealthApplication", "operatingSystem": "Android" }
+      "itemOffered": { "@type": "MobileApplication", "name": "DropPulse", "applicationCategory": "HealthApplication", "operatingSystem": "Android, iOS", "url": "https://play.google.com/store/apps/details?id=com.app.beberagua" }
     },
     {
       "@type": "Offer",
-      "itemOffered": { "@type": "MobileApplication", "name": "LevivaFast", "applicationCategory": "HealthApplication" }
+      "itemOffered": { "@type": "MobileApplication", "name": "LevivaFast", "applicationCategory": "HealthApplication", "operatingSystem": "Android, iOS" }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "MobileApplication", "name": "CyclePulse", "applicationCategory": "HealthApplication" }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": { "@type": "MobileApplication", "name": "FinancePulse", "applicationCategory": "FinanceApplication" }
     }
   ]
 }
@@ -147,7 +155,8 @@ nav.scrolled{
 .rail{position:relative;height:2px;background:var(--line-soft);border-radius:2px}
 .rail-fill{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--mint-dim),var(--mint));border-radius:2px;box-shadow:0 0 14px rgba(78,205,196,.5)}
 .rail-pulse{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--mint);transform:translate(-50%,-50%);box-shadow:0 0 0 0 rgba(78,205,196,.5);opacity:0}
-.stages{display:flex;justify-content:space-between;margin-top:28px;gap:12px}
+.stages{display:flex;justify-content:space-between;margin-top:28px;gap:12px;position:relative}
+.stages::before,.stages::after{display:none}
 .stage{flex:1;position:relative}
 .stage .node{
   position:absolute;top:-35px;left:0;width:12px;height:12px;border-radius:50%;
@@ -194,7 +203,7 @@ section{padding:110px 0;position:relative}
 /* ---------- products ---------- */
 .products{display:flex;flex-direction:column;gap:26px;margin-top:64px}
 .product{
-  display:grid;grid-template-columns:auto 1fr auto;gap:38px;align-items:center;
+  display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:start;
   border:1px solid var(--line-soft);border-radius:6px;padding:38px 40px;
   background:linear-gradient(180deg,rgba(255,255,255,.015),transparent);
   transition:.45s;position:relative;overflow:hidden;
@@ -207,21 +216,33 @@ section{padding:110px 0;position:relative}
 .p-meta{min-width:0}
 .p-status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
 .p-status .dot{width:7px;height:7px;border-radius:50%;background:var(--accent,var(--mint));box-shadow:0 0 8px var(--accent,var(--mint))}
-.p-meta h3{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:14px}
+.p-meta h3{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.01em;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .p-meta .pkg{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
 .p-meta p{margin-top:12px;color:var(--ink-soft);font-size:15px;max-width:48ch}
 .p-tags{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
 .tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-soft);border:1px solid var(--line-soft);border-radius:2px;padding:4px 9px}
-.p-cta{font-family:var(--mono);font-size:13px;color:var(--mint);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:.3s}
-.p-cta:hover{gap:12px}
 
-/* upcoming */
-.upcoming{margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.up{border:1px dashed var(--line-soft);border-radius:5px;padding:18px 18px;transition:.35s}
-.up:hover{border-color:var(--line);background:rgba(78,205,196,.03)}
-.up .un{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:.1em}
-.up h5{font-size:16px;font-weight:600;margin:8px 0 4px}
-.up p{font-size:12.5px;color:var(--ink-faint)}
+/* store buttons */
+.p-stores{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.store-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--line-soft);border-radius:5px;padding:9px 15px;
+  transition:.3s;line-height:1.15;
+}
+.store-btn svg{width:18px;height:18px;flex:none;opacity:.9}
+.sb-l{display:flex;flex-direction:column;gap:1px;min-width:0}
+.sb-s{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.sb-n{font-size:13.5px;font-weight:500;letter-spacing:-.01em}
+.store-btn:not(.soon):hover{border-color:var(--accent,var(--mint));background:rgba(78,205,196,.05)}
+.store-btn.soon{opacity:.4;cursor:default}
+
+/* in-development marker */
+.p-dev{
+  margin-top:20px;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-faint);border:1px dashed var(--line-soft);border-radius:4px;padding:9px 14px;
+}
+.p-dev::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent,var(--mint));opacity:.8}
 
 /* ---------- stats ---------- */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden;margin-top:8px}
@@ -249,25 +270,58 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
 /* ---------- responsive ---------- */
 @media(max-width:860px){
   .nav-links{display:none}
+  .nav-links.open{
+    display:flex;flex-direction:column;align-items:flex-start;gap:20px;
+    position:absolute;top:calc(100% + 8px);right:20px;left:20px;
+    background:rgba(9,18,40,.97);backdrop-filter:blur(14px);
+    padding:22px;border:1px solid var(--line);border-radius:8px;
+  }
+  .nav-links.open .lang-switch{display:none}
+  .nav-links.open .nav-cta{width:100%;text-align:center;justify-content:center}
   .nav-toggle{display:block}
   .lang-switch-mobile{display:inline-flex;margin-left:auto;margin-right:14px;padding:6px 10px;font-size:11.5px}
-  .stages{display:grid;grid-template-columns:1fr 1fr;gap:28px 16px}
+
+  /* pipeline: horizontal rail -> vertical timeline */
+  .pipeline{margin-top:56px}
+  .rail{display:none}
+  .stages{
+    display:block;margin-top:22px;padding-left:28px;position:relative;
+  }
+  .stages::before{
+    display:block;content:"";position:absolute;left:5px;top:6px;bottom:6px;
+    width:2px;background:var(--line-soft);border-radius:2px;
+  }
+  .stages::after{
+    display:block;content:"";position:absolute;left:5px;top:6px;
+    width:2px;height:var(--p,0%);border-radius:2px;
+    background:linear-gradient(180deg,var(--mint-dim),var(--mint));
+    box-shadow:0 0 12px rgba(78,205,196,.45);
+  }
+  .stage{flex:none;padding-bottom:26px}
+  .stage:last-child{padding-bottom:0}
+  .stage .node{position:absolute;left:-28px;top:4px;width:12px;height:12px}
+  .stage .idx{font-size:10.5px}
+  .stage h4{font-size:16px;margin:3px 0 4px}
+  .stage p{font-size:13.5px;max-width:48ch}
+
   .values{grid-template-columns:1fr}
   .mission .wrap{grid-template-columns:1fr;gap:34px}
-  .product{grid-template-columns:auto 1fr;gap:24px}
-  .p-cta{grid-column:1/-1;justify-content:flex-start}
-  .upcoming{grid-template-columns:1fr 1fr}
+  .product{grid-template-columns:auto 1fr;gap:22px;padding:32px 26px}
   .stats{grid-template-columns:1fr 1fr}
   .foot-cols{gap:40px}
 }
 @media(max-width:520px){
   .wrap{padding:0 20px}
-  .p-icon{width:60px;height:60px}
-  .stages{grid-template-columns:1fr}
-  .upcoming{grid-template-columns:1fr}
+  .hero{padding:110px 0 50px}
+  section{padding:80px 0}
+  .product{grid-template-columns:1fr;gap:18px;padding:28px 22px}
+  .p-icon{width:58px;height:58px;border-radius:14px}
+  .p-icon svg{width:31px;height:31px}
+  .p-meta h3{font-size:25px;gap:0 10px}
+  .p-meta p{font-size:14.5px}
   .stats{grid-template-columns:1fr}
-  .product{grid-template-columns:1fr}
-  .p-icon{width:64px;height:64px}
+  .store-btn{flex:1 1 auto;min-width:calc(50% - 5px);padding:9px 12px}
+  .stage p{max-width:none}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -287,7 +341,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
     </span>
     Kodaru <span>System</span>
   </a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="#esteira" data-i18n="nav.esteira">Esteira</a>
     <a href="#cultura" data-i18n="nav.cultura">Cultura</a>
     <a href="#missao" data-i18n="nav.missao">Missão</a>
@@ -300,7 +354,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
   <button class="lang-switch lang-switch-mobile" aria-label="Switch language">
     <span class="lang-opt active" data-lang="pt">PT</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="en">EN</span>
   </button>
-  <button class="nav-toggle" aria-label="menu" onclick="document.querySelector('.nav-links').style.display='flex';document.querySelector('.nav-links').style.position='absolute';document.querySelector('.nav-links').style.top='60px';document.querySelector('.nav-links').style.right='20px';document.querySelector('.nav-links').style.flexDirection='column';document.querySelector('.nav-links').style.background='var(--navy-deep)';document.querySelector('.nav-links').style.padding='20px';document.querySelector('.nav-links').style.borderRadius='6px';document.querySelector('.nav-links').style.border='1px solid var(--line)';">
+  <button class="nav-toggle" id="navToggle" aria-label="menu" aria-expanded="false" aria-controls="navLinks">
     <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
   </button>
 </nav>
@@ -392,18 +446,21 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
     </div>
 
     <div class="products">
-      <!-- WaterPulse -->
-      <article class="product reveal" style="--accent:#4ECDC4">
-        <div class="p-icon" style="background:linear-gradient(145deg,#1a3a6e,#4ECDC4)">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" fill="#fff" fill-opacity=".92"/><path d="M9 14a3 3 0 0 0 3 3" stroke="#1a3a6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <!-- DropPulse -->
+      <article class="product reveal" style="--accent:#1E88E5">
+        <div class="p-icon" style="background:linear-gradient(145deg,#0B3C7A,#1E88E5)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" fill="#fff" fill-opacity=".95"/><path d="M9 14a3 3 0 0 0 3 3" stroke="#0B3C7A" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
         <div class="p-meta">
-          <span class="p-status"><span class="dot"></span data-i18n="wp.status">Ao vivo · Google Play</span>
-          <h3>WaterPulse <span class="pkg">com.app.beberagua</span></h3>
-          <p data-i18n="wp.p">Rastreador de hidratação que transforma a meta diária de água em um gesto de um toque. Lembretes inteligentes, histórico confiável e sincronização — sem fricção, sem perder um dado.</p>
-          <div class="p-tags"><span class="tag">Kotlin / Android</span><span class="tag">Firebase Auth</span><span class="tag">RevenueCat</span><span class="tag" data-i18n="wp.tag4">Premium vitalício</span></div>
+          <span class="p-status"><span class="dot"></span><span data-i18n="dp.status">Ao vivo · Google Play</span></span>
+          <h3>DropPulse <span class="pkg">com.app.beberagua</span></h3>
+          <p data-i18n="dp.p">Rastreador de hidratação que transforma a meta diária de água em um gesto de um toque. Lembretes que seguem a sua rotina, histórico completo, estatísticas por hora e sequência de dias — com conta Google sincronizada e nenhum registro perdido.</p>
+          <div class="p-tags"><span class="tag">Flutter</span><span class="tag">Firebase Auth</span><span class="tag">RevenueCat</span><span class="tag" data-i18n="dp.tag4">Premium vitalício</span></div>
+          <div class="p-stores">
+            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.app.beberagua" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.6 2.3Z"/><path d="m16 15.3-3-3v-.2l3-3 .1.1 3.6 2c1 .6 1 1.5 0 2.1l-3.6 2Z"/><path d="m16.1 15.4-3.1-3.1-9.4 9.4c.3.4.9.4 1.5 0l11-6.3M13 11.7l3.1-3.1-11-6.3c-.6-.4-1.2-.3-1.5 0l9.4 9.4Z"/></svg><span class="sb-l"><span class="sb-s" data-i18n="store.getPlay">Baixe no</span><span class="sb-n">Google Play</span></span></a>
+            <span class="store-btn soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.9-3.6 2.2-1.5 2.6-.4 6.5 1.1 8.7.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.2 0 1.9-1.1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.2-.9-2.2-3.5ZM14.2 5.9c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2Z"/></svg><span class="sb-l"><span class="sb-s" data-i18n="store.soonIos">Em breve na</span><span class="sb-n">App Store</span></span></span>
+          </div>
         </div>
-        <a class="p-cta" href="#contato" data-i18n="wp.cta">Ver na loja →</a>
       </article>
 
       <!-- LevivaFast -->
@@ -412,24 +469,44 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#fff" stroke-width="1.7" stroke-opacity=".95"/><path d="M12 7.5V12l3 2" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 3.2v1.6M20.8 12h-1.6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
         </div>
         <div class="p-meta">
-          <span class="p-status"><span class="dot"></span data-i18n="lf.status">Em desenvolvimento</span>
+          <span class="p-status"><span class="dot"></span><span data-i18n="lf.status">Ao vivo</span></span>
           <h3>LevivaFast <span class="pkg" data-i18n="lf.pkg">jejum intermitente</span></h3>
-          <p data-i18n="lf.p">Companheiro de jejum intermitente com uma linha do tempo horizontal que mostra sua janela de um relance. Identidade Ember, foco no ritmo do dia — acompanhar o jejum vira algo natural, quase silencioso.</p>
+          <p data-i18n="lf.p">Companheiro de jejum intermitente com uma linha do tempo horizontal que mostra sua janela de um relance. Protocolos configuráveis, histórico de jejuns e identidade Ember focada no ritmo do dia — acompanhar o jejum vira algo natural, quase silencioso.</p>
           <div class="p-tags"><span class="tag">Flutter</span><span class="tag" data-i18n="lf.tag2">Timeline horizontal</span><span class="tag" data-i18n="lf.tag3">Paleta Ember</span><span class="tag" data-i18n="lf.tag4">Multiplataforma</span></div>
+          <div class="p-stores">
+            <span class="store-btn soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3c-.3.3-.5.8-.5 1.4v16.6c0 .6.2 1.1.5 1.4l.1.1 9.3-9.3v-.2L3.6 2.3Z"/><path d="m16 15.3-3-3v-.2l3-3 .1.1 3.6 2c1 .6 1 1.5 0 2.1l-3.6 2Z"/><path d="m16.1 15.4-3.1-3.1-9.4 9.4c.3.4.9.4 1.5 0l11-6.3M13 11.7l3.1-3.1-11-6.3c-.6-.4-1.2-.3-1.5 0l9.4 9.4Z"/></svg><span class="sb-l"><span class="sb-s" data-i18n="store.soonPlay">Em breve no</span><span class="sb-n">Google Play</span></span></span>
+            <span class="store-btn soon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.2 1.8-3.3 1.9-3.4-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.7.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.5 0-2.8.9-3.6 2.2-1.5 2.6-.4 6.5 1.1 8.7.7 1 1.6 2.2 2.7 2.2 1.1 0 1.5-.7 2.8-.7s1.6.7 2.8.7c1.2 0 1.9-1.1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.2-.9-2.2-3.5ZM14.2 5.9c.6-.7 1-1.7.9-2.7-.9 0-2 .6-2.6 1.3-.6.6-1.1 1.7-.9 2.6 1 .1 2-.5 2.6-1.2Z"/></svg><span class="sb-l"><span class="sb-s" data-i18n="store.soonIos">Em breve na</span><span class="sb-n">App Store</span></span></span>
+          </div>
         </div>
-        <a class="p-cta" href="#contato" data-i18n="lf.cta">Entrar na lista →</a>
       </article>
-    </div>
 
-    <!-- Roadmap -->
-    <div style="margin-top:56px" class="reveal">
-      <div class="pipeline-label" style="margin-bottom:20px" data-i18n="road.label">Próximos na esteira</div>
-      <div class="upcoming">
-        <div class="up"><span class="un">Pulse ·</span><h5>BreathPulse</h5><p data-i18n="bp.p">Respiração guiada e foco.</p></div>
-        <div class="up"><span class="un">Pulse ·</span><h5>MoodPulse</h5><p data-i18n="mp.p">Registro de humor diário.</p></div>
-        <div class="up"><span class="un">Pulse ·</span><h5>CalmPulse</h5><p data-i18n="cp.p">Sono e relaxamento.</p></div>
-        <div class="up"><span class="un">Pulse ·</span><h5>MedPulse</h5><p data-i18n="mdp.p">Lembrete de medicação.</p></div>
-      </div>
+      <!-- CyclePulse -->
+      <article class="product reveal" style="--accent:#E05C8A">
+        <div class="p-icon" style="background:linear-gradient(145deg,#6d1f3f,#E05C8A)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 1 1-3.1-6.3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M20 4.4V9h-4.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.5" fill="#fff"/></svg>
+        </div>
+        <div class="p-meta">
+          <span class="p-status"><span class="dot"></span><span data-i18n="cy.status">Em desenvolvimento</span></span>
+          <h3>CyclePulse <span class="pkg" data-i18n="cy.pkg">ciclo menstrual</span></h3>
+          <p data-i18n="cy.p">Acompanhamento de ciclo menstrual com previsão do próximo período e da janela fértil. Registro de sintomas e humor, calendário que se lê num relance e os dados ficando onde devem ficar: no aparelho de quem usa.</p>
+          <div class="p-tags"><span class="tag">Flutter</span><span class="tag" data-i18n="cy.tag2">Previsão de ciclo</span><span class="tag" data-i18n="cy.tag3">Sintomas e humor</span><span class="tag" data-i18n="cy.tag4">Privacidade primeiro</span></div>
+          <span class="p-dev" data-i18n="dev.note">Em desenvolvimento</span>
+        </div>
+      </article>
+
+      <!-- FinancePulse -->
+      <article class="product reveal" style="--accent:#35B37E">
+        <div class="p-icon" style="background:linear-gradient(145deg,#12503a,#35B37E)">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 19.2h16" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><rect x="5.6" y="12.4" width="3.2" height="4.6" rx="1.1" fill="#fff"/><rect x="10.4" y="9.2" width="3.2" height="7.8" rx="1.1" fill="#fff"/><rect x="15.2" y="5.4" width="3.2" height="11.6" rx="1.1" fill="#fff"/></svg>
+        </div>
+        <div class="p-meta">
+          <span class="p-status"><span class="dot"></span><span data-i18n="fp.status">Em desenvolvimento</span></span>
+          <h3>FinancePulse <span class="pkg" data-i18n="fp.pkg">controle financeiro</span></h3>
+          <p data-i18n="fp.p">Controle financeiro pessoal sem planilha. Lançamento em poucos toques, categorias que fazem sentido, metas de gasto por mês e uma visão honesta de para onde o dinheiro está indo.</p>
+          <div class="p-tags"><span class="tag">Flutter</span><span class="tag" data-i18n="fp.tag2">Metas mensais</span><span class="tag" data-i18n="fp.tag3">Categorias</span><span class="tag" data-i18n="fp.tag4">Funciona offline</span></div>
+          <span class="p-dev" data-i18n="dev.note">Em desenvolvimento</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -438,8 +515,8 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
 <section style="padding-top:0">
   <div class="wrap">
     <div class="stats reveal">
-      <div class="stat"><div class="num" data-count="2">2</div><div class="lbl" data-i18n="st1">Apps na família Pulse</div></div>
-      <div class="stat"><div class="num" data-count="6">6</div><div class="lbl" data-i18n="st2">Produtos no roadmap</div></div>
+      <div class="stat"><div class="num" data-count="4">4</div><div class="lbl" data-i18n="st1">Apps na família Pulse</div></div>
+      <div class="stat"><div class="num" data-count="2">2</div><div class="lbl" data-i18n="st2">Publicados nas lojas</div></div>
       <div class="stat"><div class="num">3</div><div class="lbl" data-i18n="st3">Stacks · .NET · Kotlin · Flutter</div></div>
       <div class="stat"><div class="num">1</div><div class="lbl" data-i18n="st4">Compra, todos os apps</div></div>
     </div>
@@ -470,9 +547,10 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
     <div class="foot-cols">
       <div class="foot-col">
         <h6 data-i18n="foot.c1">Produtos</h6>
-        <a href="#produtos">WaterPulse</a>
+        <a href="#produtos">DropPulse</a>
         <a href="#produtos">LevivaFast</a>
-        <a href="#produtos" data-i18n="foot.road">Roadmap Pulse</a>
+        <a href="#produtos">CyclePulse</a>
+        <a href="#produtos">FinancePulse</a>
       </div>
       <div class="foot-col">
         <h6 data-i18n="foot.c2">Estúdio</h6>
@@ -500,12 +578,22 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-start;g
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
 
+// mobile menu
+const navToggle=document.getElementById('navToggle'),navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>{
+  const open=navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded',open);
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded','false');
+}));
+
 // reveal on scroll
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // pipeline animation
-const fill=document.getElementById('railFill'),pulse=document.getElementById('railPulse'),stages=[...document.querySelectorAll('#stages .stage')];
+const fill=document.getElementById('railFill'),pulse=document.getElementById('railPulse'),stagesWrap=document.getElementById('stages'),stages=[...document.querySelectorAll('#stages .stage')];
 let started=false;
 const pipeIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting&&!started){started=true;runPipe();pipeIO.disconnect()}}),{threshold:.4});
 pipeIO.observe(document.getElementById('esteira'));
@@ -517,6 +605,7 @@ function runPipe(){
     const eased=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
     fill.style.width=(eased*100)+'%';
     pulse.style.left=(eased*100)+'%';
+    stagesWrap.style.setProperty('--p',(eased*100)+'%');
     stages.forEach((s,i)=>{if(eased>=i/(stages.length-1)-0.02)s.classList.add('on')});
     if(p<1)requestAnimationFrame(step);
     else{pulse.style.transition='opacity .6s';pulse.style.opacity='0';loopPulse()}
@@ -577,24 +666,34 @@ document.querySelectorAll('[data-count]').forEach(el=>cIO.observe(el));
     "prod.eyebrow": "Products",
     "prod.h2": "The Pulse family.",
     "prod.p": "Wellbeing apps with a shared identity: functional minimalism, fair monetization and the same technical base underneath. One-time purchase, no aggressive subscriptions.",
-    "wp.status": "Live · Google Play",
-    "wp.p": "A hydration tracker that turns the daily water goal into a one-tap gesture. Smart reminders, reliable history and sync — no friction, no lost data.",
-    "wp.tag4": "Lifetime premium",
-    "wp.cta": "View in store →",
-    "lf.status": "In development",
+    "store.getPlay": "Download on",
+    "store.getIos": "Download on",
+    "store.soonPlay": "Coming soon to",
+    "store.soonIos": "Coming soon to",
+    "dev.note": "In development",
+    "dp.status": "Live · Google Play",
+    "dp.p": "A hydration tracker that turns the daily water goal into a one-tap gesture. Reminders that follow your routine, full history, hourly statistics and a day streak — with a synced Google account and no lost entries.",
+    "dp.tag4": "Lifetime premium",
+    "lf.status": "Live",
     "lf.pkg": "intermittent fasting",
-    "lf.p": "An intermittent-fasting companion with a horizontal timeline that shows your window at a glance. Ember identity, focused on the day's rhythm — tracking your fast becomes natural, almost silent.",
+    "lf.p": "An intermittent-fasting companion with a horizontal timeline that shows your window at a glance. Configurable protocols, fasting history and an Ember identity focused on the rhythm of the day — tracking your fast becomes natural, almost silent.",
     "lf.tag2": "Horizontal timeline",
     "lf.tag3": "Ember palette",
     "lf.tag4": "Cross-platform",
-    "lf.cta": "Join the waitlist →",
-    "road.label": "Next in the pipeline",
-    "bp.p": "Guided breathing and focus.",
-    "mp.p": "Daily mood logging.",
-    "cp.p": "Sleep and relaxation.",
-    "mdp.p": "Medication reminders.",
+    "cy.status": "In development",
+    "cy.pkg": "menstrual cycle",
+    "cy.p": "Menstrual cycle tracking with predictions for the next period and the fertile window. Symptom and mood logging, a calendar you can read at a glance, and the data staying where it belongs: on the user's device.",
+    "cy.tag2": "Cycle prediction",
+    "cy.tag3": "Symptoms and mood",
+    "cy.tag4": "Privacy first",
+    "fp.status": "In development",
+    "fp.pkg": "personal finance",
+    "fp.p": "Personal finance without a spreadsheet. Log an expense in a couple of taps, categories that make sense, monthly spending goals and an honest view of where the money is going.",
+    "fp.tag2": "Monthly goals",
+    "fp.tag3": "Categories",
+    "fp.tag4": "Works offline",
     "st1": "Apps in the Pulse family",
-    "st2": "Products on the roadmap",
+    "st2": "Published on the stores",
     "st3": "Stacks · .NET · Kotlin · Flutter",
     "st4": "One purchase, every app",
     "fin.eyebrow": "Let's talk",
@@ -602,7 +701,6 @@ document.querySelectorAll('[data-count]').forEach(el=>cIO.observe(el));
     "fin.p": "Architecture consulting, app development or a product partnership — Kodaru's pipeline is open.",
     "foot.brand": "Independent studio for software engineering and app development. Solid foundation, products with a purpose.",
     "foot.c1": "Products",
-    "foot.road": "Pulse roadmap",
     "foot.c2": "Studio",
     "foot.cult": "Culture",
     "foot.miss": "Mission",
@@ -615,7 +713,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cIO.observe(el));
   document.querySelectorAll('[data-i18n]').forEach(el=>{ PT[el.dataset.i18n]=el.innerHTML; });
   const metaEN = {
     title:"Kodaru System — Software engineering and apps that solve real problems",
-    desc:"Kodaru System is an independent software engineering and app development studio. We build products like WaterPulse and LevivaFast with solid architecture and careful design."
+    desc:"Kodaru System is an independent software engineering and app development studio. We build products like DropPulse, LevivaFast, CyclePulse and FinancePulse with solid architecture and careful design."
   };
   const metaPT = { title:document.title, desc:(document.querySelector('meta[name=description]')||{}).content };
   let lang='pt';
